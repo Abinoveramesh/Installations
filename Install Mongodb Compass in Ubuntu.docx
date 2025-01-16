@@ -1,0 +1,17 @@
+1. Download MongoDB Compass.
+
+wget https://downloads.mongodb.com/compass/mongodb-compass_1.44.5_amd64.deb
+
+
+2. Install MongoDB Compass.
+
+sudo apt install ./mongodb-compass_1.44.5_amd64.deb
+
+If your Linux distribution does not support using apt for installing local .deb files, run the following lines to install MongoDB Compass:
+
+sudo dpkg -i mongodb-compass_1.44.5_amd64.deb
+sudo apt-get install -f # This installs required compass dependencies
+
+3. Start MongoDB Compass.
+
+mongodb-compass
