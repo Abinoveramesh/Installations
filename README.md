@@ -15,6 +15,7 @@ This repository helps you to quickly install and set up a variety of essential t
 10. **Microsoft Edge** – A web browser developed by Microsoft, offering improved speed and security features.
 11. **Apache** – A widely-used web server software that serves websites to the internet.
 12. **Nginx** – A high-performance web server that can be used as a reverse proxy or load balancer.
+13. **MongoDB Compass** is a free, open-source tool that helps users query, analyze, and optimize MongoDB data
 
 ---
 
