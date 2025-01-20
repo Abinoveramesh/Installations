@@ -1,0 +1,86 @@
+1. Project Management Commands
+
+Command	Description
+mvn clean	Cleans the project by deleting the target directory.
+mvn compile	Compiles the source code of the project.
+mvn test	Runs the tests using the test framework configured in the project.
+mvn package	Packages the compiled code into a distributable format (e.g., JAR, WAR).
+mvn install	Installs the package into the local repository for use as a dependency.
+mvn deploy	Deploys the built package to a remote repository for sharing with other projects.
+
+
+
+2. Dependency Management
+
+Command	Description
+mvn dependency:resolve	Resolves all dependencies for the project.
+mvn dependency:tree	Displays the project's dependency tree.
+mvn dependency:analyze	Analyzes the project's dependencies and suggests optimization (unused deps).
+mvn dependency:purge-local-repository	Clears specific artifacts from the local repository.
+
+
+3. Lifecycle Commands
+
+Command	Description
+mvn validate	Validates the project structure and the pom.xml file.
+mvn verify	Verifies the project by running integration tests.
+mvn site	Generates a project site with documentation and reports.
+
+
+4. Plugins and Goals
+
+Command	Description
+mvn help:describe -Dplugin=<plugin>	Describes a specific plugin and its goals.
+mvn exec:java -Dexec.mainClass=<main>	Executes the specified main class.
+mvn install:install-file	Installs an external JAR to the local Maven repository.
+
+
+
+5. Running Specific Profiles
+
+Command	Description
+mvn -P<profile>	Activates a specific profile defined in the pom.xml.
+mvn package -P<profile>	Builds the package using a specific profile.
+
+
+6. Skip Tests
+Command	Description
+mvn install -DskipTests	Skips test execution during the build process.
+mvn install -Dmaven.test.skip=true	Skips test compilation and execution during the build process.
+
+
+7. Debugging
+Command	Description
+mvn -X	Enables debug output for Maven commands.
+mvn -e	Displays error details for failed commands.
+
+
+8. Updating Dependencies
+Command	Description
+mvn dependency:resolve -U	Forces an update of dependencies from remote repositories.
+
+
+
+9. Generate Archetypes
+Command	Description
+mvn archetype:generate	Creates a new project from a Maven archetype template.
+
+
+
+10. Versioning
+Command	Description
+mvn versions:set -DnewVersion=<ver>	Updates the project's version in the pom.xml.
+mvn versions:display-dependency-updates	Displays updates available for project dependencies.
+Examples:
+Clean and Build:
+mvn clean install
+Cleans the target directory and installs the package into the local repository.
+
+Run a Java Class:
+mvn exec:java -Dexec.mainClass="com.example.Main"
+Runs the Main class in the project.
+
+Skip Tests and Package:
+mvn package -DskipTests
+
+Packages the project without running tests.
