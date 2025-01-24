@@ -1,5 +1,5 @@
 Why docker ?
-It provides a way to package applications with all their dependencies into self-contained units called containers
+It provides a way to package applications with all their dependencies into self-contained units called containers.
 
 What is Docker?
 Docker is a platform designed to help developers build, share, and run container applications. We handle the tedious setup, so you can focus on the code.
