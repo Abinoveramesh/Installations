@@ -1,0 +1,182 @@
+Why docker ?
+It provides a way to package applications with all their dependencies into self-contained units called containers
+
+What is Docker?
+Docker is a platform designed to help developers build, share, and run container applications. We handle the tedious setup, so you can focus on the code.
+
+When is Docker?
+Docker is a technology that allows users to build, run, test, and deploy applications using containers
+
+
+Step 1: Update the package list-  Open the terminal and run:
+sudo apt update
+
+Step 2: Install prerequisite packages - These packages allow apt to use repositories over HTTPS:
+sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+
+
+Ste-   3: Add Docker’s official GPG ke - 
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+
+Step 4: Add Docker’s official repositor
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+
+Step 5: Update the package list agai
+sudo apt update
+
+Step 6: Install Docker Engine - Install Docker with:
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+
+
+Step 7: Verify the Docker installation - Check if Docker is installed correctly:
+sudo docker --version
+
+
+Step 8: Enable and start Docker - Ensure Docker starts automatically after a reboot:
+sudo systemctl enable docker & sudo systemctl start docker 
+
+Step 9 (Optional) : Allow non-root users to run Docker. To avoid using sudo with every Docker command:
+sudo usermod -aG docker $USER
+Log out and log back in for the changes to take effect. 
+
+
+Step 10: Test Docker
+Run a test container to confirm Docker is working:
+sudo docker run hello-world
+
+
+
+
+
+
+
+
+1. General Commands
+Check  Docker version
+   docker --version
+
+Display system-wide information about  Docker
+   docker info
+
+
+2. Images
+List all images
+   docker images
+
+Pull an image from  Docker Hub
+   docker pull <image-name>:<tag>
+Example:
+   docker pull ubuntu:latest
+
+Remove an image
+   docker rmi <image-id>
+
+Build an image from a  Dockerfile
+   docker build -t <image-name>:<tag> .
+
+
+3. Containers
+Run a container interactively
+   docker run -it <image-name>
+
+Run a container in the background (detached mode)
+   docker run -d <image-name>
+
+List all running containers
+   docker ps
+
+List all containers (including stopped ones)
+   docker ps -a
+
+Stop a running container
+   docker stop <container-id>
+
+Start a stopped container
+   docker start <container-id>
+Remove a container
+   docker rm <container-id>
+
+4. Volumes
+List all volumes
+   docker volume ls
+
+Create a volume
+   docker volume create <volume-name>
+
+Remove a volume
+   docker volume rm <volume-name>
+
+
+5. Networks
+List all  Docker networks
+   docker network ls
+
+Create a network
+   docker network create <network-name>
+
+Connect a container to a network
+   docker network connect <network-name> <container-id>
+
+Disconnect a container from a network
+   docker network disconnect <network-name> <container-id>
+
+6. Logs and Inspect
+View container logs
+   docker logs <container-id>
+
+Inspect a container’s details
+   docker inspect <container-id>
+
+Monitor container resource usage
+   docker stats
+
+7. Export and Import
+Export a container’s filesystem to a tar file
+   docker export <container-id> > <filename>.tar
+
+Import a tar file as an image
+   docker import <filename>.tar <image-name>:<tag>
+
+8.  Docker Compose Commands (if using  Docker Compose)
+Start services defined in a  Docker-compose.yml file
+   docker-compose up
+
+Start services in detached mode
+   docker-compose up -d
+
+Stop services
+   docker-compose down
+
+
+
+
+
+Simple Dockerfile
+
+# Step 1: Use an official Python runtime as the base image
+FROM python:3.9-slim
+
+# Step 2: Set the working directory in the container
+WORKDIR /app
+
+# Step 3: Copy the application code into the container
+COPY . .
+
+# Step 4: Install dependencies from the requirements file
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Step 5: Specify the command to run the application
+CMD ["python", "app.py"]
+
+
+
+Build the Docker image:
+docker build -t flask-app .
+
+Run the container:
+docker run -p 5000:5000 flask-app
+
+Access
+The app in your browser: open http://localhost:5000
