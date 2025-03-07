@@ -24,3 +24,39 @@ The -U flag specifies the username (postgres in this case), and -W prompts you t
 
 5. Verify the Installation and Connection, Once logged in, you can verify the connection and database by running:
   \l
+
+
+
+
+#To see status:
+sudo systemctl status postgresql
+
+#Login
+sudo su - postgres
+psql
+
+#login other user
+psql -h 127.0.0.1 -U usertravelfrc -d traveldevelopmet -p 5432
+
+#To change this postgres password:
+ALTER USER postgres WITH PASSWORD 'root';
+
+#To create a root user:
+CREATE ROLE root WITH SUPERUSER CREATEDB CREATEROLE LOGIN PASSWORD 'root';
+
+#To create a user with certain access:
+
+#Grant the testuser permissions to read from and write to the testerdb database:
+GRANT CONNECT ON DATABASE testerdb TO testuser;
+
+#Switch to the testerdb database to grant permissions on all tables:
+\c testerdb
+
+GRANT USAGE ON SCHEMA public TO testuser;
+#Then grant SELECT, INSERT, UPDATE, and DELETE permissions on all current tables:
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO testuser;
+
+#To ensure testuser gets permissions on any future tables created in the public schema, execute:
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO testuser;
+\q
+
