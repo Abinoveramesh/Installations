@@ -102,52 +102,50 @@ List of databases
 psql -U postgres -d your_database
 
 
-
-
-+-------------------------------------+------------------------------------------------+
-| Command                             | Description                                    |
-+-------------------------------------+------------------------------------------------+
-| \l                                  | List all databases                            |
-| \c database_name                    | Connect to a different database               |
-| \du                                 | List all users & roles                        |
-| \password username                   | Change user password                          |
-| \q                                  | Quit the psql terminal                        |
-| \dt                                 | List all tables in the current database       |
-| \d table_name                       | Describe a table structure                    |
-| \dt+                                | List tables with additional details           |
-| \dv                                 | List all views                                |
-| \di                                 | List all indexes                              |
-| \ds                                 | List all sequences                            |
-| \df                                 | List all functions                            |
-| \dn                                 | List all schemas                              |
-| \dp                                 | Show table privileges                         |
-| \db                                 | List all tablespaces                          |
-| SELECT * FROM table_name;            | View all rows from a table                    |
-| INSERT INTO table_name VALUES (...); | Insert a new row                              |
-| UPDATE table_name SET col=value WHERE cond; | Update existing data              |
-| DELETE FROM table_name WHERE cond;   | Delete specific data                          |
-| TRUNCATE TABLE table_name;           | Delete all rows from a table                  |
-| DROP TABLE table_name;               | Delete a table permanently                    |
-| EXPLAIN ANALYZE query;               | Analyze query performance                     |
-| CREATE USER username WITH PASSWORD 'pass'; | Create a new user                     |
-| DROP USER username;                  | Delete a user                                 |
-| GRANT ALL PRIVILEGES ON db TO user;  | Grant full access to a user                   |
-| REVOKE ALL PRIVILEGES ON db FROM user; | Remove access from a user                   |
-| BEGIN;                               | Start a transaction                           |
-| COMMIT;                              | Commit a transaction                          |
-| ROLLBACK;                            | Rollback a transaction                        |
-| SELECT * FROM pg_locks;              | Show currently active locks                   |
-| SELECT * FROM pg_stat_activity;      | Show all active queries                       |
-| CREATE INDEX idx_name ON table (col);| Create an index                               |
-| DROP INDEX idx_name;                 | Remove an index                               |
-| VACUUM ANALYZE;                      | Optimize database performance                 |
-| CLUSTER table_name USING index_name; | Cluster data based on an index                |
-| pg_dump -U user -d db -F c -f file.dump | Create a compressed backup              |
-| pg_restore -U user -d db file.dump   | Restore from a backup                         |
-| psql -U user -d db -f backup.sql     | Restore from a SQL backup                     |
-| \x                                   | Toggle expanded display mode                  |
-| \timing                              | Show query execution time                     |
-| \echo 'Hello'                        | Print a message in psql                       |
-| \watch query                         | Execute a query repeatedly every 2 seconds    |
-| \?                                   | Show all available psql commands              |
-+-------------------------------------+------------------------------------------------+
+┌──────────────────────────────────────────┬──────────────────────────────────────────────┐
+│ Command                                  │ Description                                  │
+├──────────────────────────────────────────┼──────────────────────────────────────────────┤
+│ \l                                       │ List all databases                          │
+│ \c database_name                         │ Connect to a different database             │
+│ \du                                      │ List all users & roles                      │
+│ \password username                       │ Change user password                        │
+│ \q                                       │ Quit the psql terminal                      │
+│ \dt                                      │ List all tables in the current database     │
+│ \d table_name                            │ Describe a table structure                  │
+│ \dt+                                     │ List tables with additional details         │
+│ \dv                                      │ List all views                              │
+│ \di                                      │ List all indexes                            │
+│ \ds                                      │ List all sequences                          │
+│ \df                                      │ List all functions                          │
+│ \dn                                      │ List all schemas                            │
+│ \dp                                      │ Show table privileges                       │
+│ \db                                      │ List all tablespaces                        │
+│ SELECT * FROM table_name;                │ View all rows from a table                  │
+│ INSERT INTO table_name VALUES (...);     │ Insert a new row                            │
+│ UPDATE table_name SET col=value WHERE c; │ Update existing data                        │
+│ DELETE FROM table_name WHERE condition;  │ Delete specific data                        │
+│ TRUNCATE TABLE table_name;               │ Delete all rows from a table                │
+│ DROP TABLE table_name;                   │ Delete a table permanently                  │
+│ EXPLAIN ANALYZE query;                   │ Analyze query performance                   │
+│ CREATE USER username WITH PASSWORD 'p';  │ Create a new user                           │
+│ DROP USER username;                      │ Delete a user                               │
+│ GRANT ALL PRIVILEGES ON db TO user;      │ Grant full access to a user                 │
+│ REVOKE ALL PRIVILEGES ON db FROM user;   │ Remove access from a user                   │
+│ BEGIN;                                   │ Start a transaction                         │
+│ COMMIT;                                  │ Commit a transaction                        │
+│ ROLLBACK;                                │ Rollback a transaction                      │
+│ SELECT * FROM pg_locks;                  │ Show currently active locks                 │
+│ SELECT * FROM pg_stat_activity;          │ Show all active queries                     │
+│ CREATE INDEX idx_name ON table (col);    │ Create an index                             │
+│ DROP INDEX idx_name;                     │ Remove an index                             │
+│ VACUUM ANALYZE;                          │ Optimize database performance               │
+│ CLUSTER table_name USING index_name;     │ Cluster data based on an index              │
+│ pg_dump -U user -d db -F c -f file.dump  │ Create a compressed backup                  │
+│ pg_restore -U user -d db file.dump       │ Restore from a backup                       │
+│ psql -U user -d db -f backup.sql         │ Restore from a SQL backup                   │
+│ \x                                       │ Toggle expanded display mode                │
+│ \timing                                  │ Show query execution time                   │
+│ \echo 'Hello'                            │ Print a message in psql                     │
+│ \watch query                             │ Execute a query repeatedly every 2 seconds  │
+│ \?                                       │ Show all available psql commands            │
+└──────────────────────────────────────────┴──────────────────────────────────────────────┘
