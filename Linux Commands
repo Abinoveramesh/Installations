@@ -1,0 +1,43 @@
+To add a new user in Ubuntu, use the following commands:
+
+1. Create a New User
+sudo adduser username
+It will ask for a password and other details.
+
+2. Add User to the Sudo Group (Optional - For Admin Access)
+sudo usermod -aG sudo username
+This gives the user admin (sudo) privileges.
+
+3. Verify the User
+Check if the user was created:
+cat /etc/passwd | grep username
+
+4. Switch to the New User
+su - username
+
+
+
+
+To delete a user in Ubuntu, you can use the following command:
+
+1. Delete a User (Without Removing Home Directory)
+sudo deluser username
+
+2. Delete a User and Remove Home Directory
+sudo deluser --remove-home username
+
+3. Delete a User and Remove Home Directory & Mail Spool
+sudo deluser --remove-home --remove-all-files username
+
+4. Forcefully Remove a User (If the Above Fails)
+sudo userdel -r username
+🔹 Check if the user is logged in before deleting:
+who
+If the user is logged in, use:
+sudo pkill -u username
+Then delete the user.
+
+
+
+
+
