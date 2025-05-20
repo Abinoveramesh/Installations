@@ -51,3 +51,6 @@ mvn versions:display-dependency-updates: Lists updates for dependencies.
 Clean and Build: mvn clean install
 Run a Java Class: mvn exec:java -Dexec.mainClass="com.example.Main"
 Skip Tests and Package: mvn package -DskipTests
+
+
+happy learning !!
