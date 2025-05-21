@@ -1,0 +1,35 @@
+
+How to Create a 4GB Swap File on Your EC2 Instance
+Check existing swap (optional):
+sudo swapon --show
+free -h
+
+Create a swap file of 4GB:
+sudo fallocate -l 4G /swapfile
+If fallocate is unavailable, use:
+sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
+
+Set the correct permissions for security:
+sudo chmod 600 /swapfile
+
+Format the file as swap space:
+sudo mkswap /swapfile
+
+Enable the swap file immediately:
+sudo swapon /swapfile
+
+Verify that swap is active:
+sudo swapon --show
+free -h
+
+Make swap permanent (auto-enable on reboot):
+
+
+Open the fstab file: 
+sudo nano /etc/fstab
+Add this line at the end:
+/swapfile none swap sw 0 0
+Save and exit (Ctrl+O, Enter, Ctrl+X).
+
+A Small Reminder
+Swap can help with memory pressure, but it's not a substitute for RAM — so if possible, plan for a future instance upgrade if you frequently hit memory limits.
